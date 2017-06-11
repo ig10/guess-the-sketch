@@ -187,6 +187,7 @@ ul {
   right: 0;
   bottom: 0;
   top: 0;
+  border: 1px solid black;
 }
 
 .colors {

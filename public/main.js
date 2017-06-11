@@ -93,8 +93,10 @@
 
   // make the canvas fill its parent
   function onResize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    var element = document.getElementById('board');
+    var size = element.getBoundingClientRect();
+    canvas.width = size.width;
+    canvas.height = size.height;
   }
 
 })();
