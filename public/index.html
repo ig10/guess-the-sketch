@@ -6,24 +6,49 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <ul class="pages">
+    <li class="board page">
+      <canvas id="board" class="whiteboard" ></canvas>
 
-  <canvas id="board" class="whiteboard" ></canvas>
-  
-  <div class="colors">    
-    <div class="color black"></div>
-    <div class="color red"></div>
-    <div class="color green"></div>
-    <div class="color blue"></div>
-    <div class="color yellow"></div>
-    <div class="color white"></div>
-    <button id="clear" type="button">Borrar</button>
+      <div class="colors">
+        <div class="color black"></div>
+        <div class="color red"></div>
+        <div class="color green"></div>
+        <div class="color blue"></div>
+        <div class="color yellow"></div>
+      </div>
+      <div class="control">
+        <button id="clear" type="button">Borrar</button>
     <select id="size">
         <option value="2">Small</option>
         <option value="6">Normal</option>
         <option value="10">Big</option>
     </select>
-  </div>  
-  <script src="/socket.io/socket.io.js"></script>
+      </div>
+    </li>
+    <li class="chat page">
+      <div class="chatArea">
+        <ul class="messages"></ul>
+      </div>
+      <input class="inputMessage" placeholder=""/>
+    </li>
+    <li class="login page">
+      <div class="form">
+        <p>
+          <div class="chooseLanguage"></div>
+          <button class="chileButton" onclick="setLanguage('es')"></button>
+          <button class="canadaButton" onclick="setLanguage('en')"></button>
+        </p>
+        <h3 class="title"></h3>
+        <input class="usernameInput" type="text" maxlength="14" />
+      </div>
+    </li>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>  
+  <script src="/lang.js"></script>
+  <script src="/chat.js"></script>
   <script src="/main.js"></script>
 </body>
 </html>
