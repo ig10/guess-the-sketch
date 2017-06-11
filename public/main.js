@@ -5,7 +5,11 @@
   var socket = io();
   var canvas = document.getElementsByClassName('whiteboard')[0];
   var colors = document.getElementsByClassName('color');
-  var context = canvas.getContext('2d');
+  var context = canvas.getContext('2d');    
+  
+  var clearBoard = document.getElementById('clear');  
+  var pencilSize = 2;
+  var sizeOptions = document.getElementById("size");
 
   var current = {
     color: 'black'
@@ -20,22 +24,33 @@
   for (var i = 0; i < colors.length; i++){
     colors[i].addEventListener('click', onColorUpdate, false);
   }
-
+  
   socket.on('drawing', onDrawingEvent);
 
   window.addEventListener('resize', onResize, false);
   onResize();
 
+  sizeOptions.addEventListener("click", function() {
+    pencilSize = sizeOptions.options[sizeOptions.selectedIndex].value;
+  });
+
+  clearBoard.addEventListener("click",function(){
+    context.save();    
+    context.setTransform(1, 0, 0, 1, 0, 0);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    
+    context.restore();
+  });
 
   function drawLine(x0, y0, x1, y1, color, emit){
     context.beginPath();
     context.moveTo(x0, y0);
     context.lineTo(x1, y1);
     context.strokeStyle = color;
-    context.lineWidth = 2;
+    context.lineWidth = pencilSize;
     context.stroke();
     context.closePath();
-
+    
     if (!emit) { return; }
     var w = canvas.width;
     var h = canvas.height;

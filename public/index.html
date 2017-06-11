@@ -8,15 +8,21 @@
 <body>
 
   <canvas id="board" class="whiteboard" ></canvas>
-
-  <div class="colors">
+  
+  <div class="colors">    
     <div class="color black"></div>
     <div class="color red"></div>
     <div class="color green"></div>
     <div class="color blue"></div>
     <div class="color yellow"></div>
-  </div>
-
+    <div class="color white"></div>
+    <button id="clear" type="button">Borrar</button>
+    <select id="size">
+        <option value="2">Small</option>
+        <option value="6">Normal</option>
+        <option value="10">Big</option>
+    </select>
+  </div>  
   <script src="/socket.io/socket.io.js"></script>
   <script src="/main.js"></script>
 </body>

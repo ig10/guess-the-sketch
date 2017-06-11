@@ -9,7 +9,7 @@ html, body {
 }
 
 .whiteboard {
-  height: 100%;
+  height: 60%;
   width: 60%;
   position: absolute;
   left: 0;
