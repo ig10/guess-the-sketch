@@ -6,18 +6,41 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <ul class="pages">
+    <li class="board page">
+      <canvas class="whiteboard" ></canvas>
 
-  <canvas class="whiteboard" ></canvas>
+      <div class="colors">
+        <div class="color black"></div>
+        <div class="color red"></div>
+        <div class="color green"></div>
+        <div class="color blue"></div>
+        <div class="color yellow"></div>
+      </div>
+    </li>
+    <li class="chat page">
+      <div class="chatArea">
+        <ul class="messages"></ul>
+      </div>
+      <input class="inputMessage" placeholder=""/>
+    </li>
+    <li class="login page">
+      <div class="form">
+        <p>
+          <div class="chooseLanguage"></div>
+          <button class="chileButton" onclick="setLanguage('es')"></button>
+          <button class="canadaButton" onclick="setLanguage('en')"></button>
+        </p>
+        <h3 class="title"></h3>
+        <input class="usernameInput" type="text" maxlength="14" />
+      </div>
+    </li>
+  </ul>
 
-  <div class="colors">
-    <div class="color black"></div>
-    <div class="color red"></div>
-    <div class="color green"></div>
-    <div class="color blue"></div>
-    <div class="color yellow"></div>
-  </div>
-
-  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>  
+  <script src="/lang.js"></script>
+  <script src="/chat.js"></script>
   <script src="/main.js"></script>
 </body>
 </html>
